@@ -67,40 +67,33 @@ public class CharacterManager : MonoBehaviour
         if (move.magnitude > 0)
             transform.LookAt(transform.position + (nForward * 5));
         controller.Move(move * Time.deltaTime * playerSpeed);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, interactionRange);
+        if (colliders.Length > 0) {
+            int interactablesFound = 0;
+            foreach (Collider collider in colliders) {
+                InteractableItem itemInReach = collider.gameObject.GetComponent<InteractableItem>();
+                if (itemInReach != null) {
+                    if (!itemInReach.active)
+                        continue;
 
-        //Vector2 aim = inputControl.Look.ReadValue<Vector2>();
-        Vector3 origin = transform.position + (transform.forward);
-        Ray ray = new Ray(origin, transform.forward);
-        Debug.DrawRay(origin, transform.forward, Color.white, 0, false);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 5)) {
-            InteractableItem itemInAim = hit.collider.gameObject.GetComponent<InteractableItem>();
-            if(itemInAim != null) {
+                    interactablesFound++;
 
-                if (!itemInAim.active)
-                    return;
-                if (highlightedItem != null && highlightedItem != itemInAim) {
-                    //highlightedItem.HighlightOff();
-                } else if (highlightedItem != itemInAim) {
-                    //itemInAim.HighlightOn();
-                    highlightedItem = itemInAim;
-                }
-                Debug.Log(highlightedItem.name);
-                if (interactableText.activeSelf && hit.distance > interactionRange)
-                    interactableText.SetActive(false);
-                else if (!interactableText.activeSelf && hit.distance <= interactionRange)
-                    interactableText.SetActive(true);
-            } else if (highlightedItem != null) {
-                //highlightedItem.HighlightOff();
+                    if (highlightedItem != null && highlightedItem != itemInReach) {
+                        //highlightedItem.HighlightOff();
+                    } else if (highlightedItem != itemInReach) {
+                        //itemInAim.HighlightOn();
+                        highlightedItem = itemInReach;
+                    }
+                    
+                    if (!interactableText.activeSelf)
+                        interactableText.SetActive(true);
+                } 
+            } 
+            if (interactablesFound == 0) {
                 highlightedItem = null;
                 if (interactableText.activeSelf)
                     interactableText.SetActive(false);
             }
-        } else if (highlightedItem != null) {
-            //highlightedItem.HighlightOff();
-            highlightedItem = null;
-            if (interactableText.activeSelf)
-                interactableText.SetActive(false);
         }
 
         // Changes the height position of the player..
