@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.InputSystem;
 
 public class DialogController : MonoBehaviour
 {
@@ -14,12 +15,13 @@ public class DialogController : MonoBehaviour
     public GameObject dialogUI;
     private List<KeyValuePair<string, Button>> choices;
     private List<KeyValuePair<string, DialogLine>> lines;
-    private Interaction myInteraction;
+    private NPCDialog myDialogInteraction;
+    public PlayerInput playerInput;
 
-    public void PlayDialog(Sprite charPortrait, DialogObject dialogObject, Interaction inter)
+    public void PlayDialog(Sprite charPortrait, DialogObject dialogObject, NPCDialog inter)
     {
-        myInteraction = inter;
-        //InputManager.instance.PauseGameplay();
+        myDialogInteraction = inter;
+        playerInput.SwitchCurrentActionMap("UI");
         dialogText.text = dialogObject.startingLine;
         dialogUI.SetActive(true);
         portrait.sprite = charPortrait;
@@ -37,12 +39,15 @@ public class DialogController : MonoBehaviour
     public void StopDialog()
     {
         dialogUI.SetActive(false);
-        //InputManager.instance.UnpauseGameplay();
-        myInteraction.DialogEnded();
+        playerInput.SwitchCurrentActionMap("Player");
+        myDialogInteraction.DialogEnded();
     }
 
     public void DialogChosen(string question)
     {
+        foreach (KeyValuePair<string, DialogLine> line in lines) {
+            Debug.Log(line.Key);
+        }
         KeyValuePair<string, Button> choicePair = choices.SingleOrDefault(x => x.Key == question);
         KeyValuePair<string, DialogLine> linePair = lines.SingleOrDefault(x => x.Key == question);
         Button dialogChosen = choicePair.Value;
@@ -84,6 +89,7 @@ public class DialogController : MonoBehaviour
         dialogController = this;
         choices = new List<KeyValuePair<string, Button>>();
         lines = new List<KeyValuePair<string, DialogLine>>();
+        dialogUI.SetActive(false);
     }
 
     // Update is called once per frame

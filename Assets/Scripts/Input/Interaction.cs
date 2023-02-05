@@ -6,6 +6,4 @@ using UnityEngine;
 public abstract class Interaction : MonoBehaviour
 {
     public abstract void OnInteract(InteractableItem item);
-
-    public abstract void DialogEnded();
 }
