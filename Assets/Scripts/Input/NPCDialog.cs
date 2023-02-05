@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class NPCDialog : Interaction
 {
-    public override void DialogEnded()
-    {
-        throw new System.NotImplementedException();
-    }
-
+    public DialogObject dialog;
+    public Sprite portrait;
     public override void OnInteract(InteractableItem item)
     {
-        Debug.Log("Interacted with NPC.");
-}
+        DialogController.dialogController.PlayDialog(portrait, dialog, this);
+    }
+    public void DialogEnded() {
+
+    }
 }

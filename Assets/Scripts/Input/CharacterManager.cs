@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController))]
 public class CharacterManager : MonoBehaviour
 {
-    private InputControl inputControl;
+    private PlayerInput playerInput;
     private CharacterController controller;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
@@ -26,6 +26,7 @@ public class CharacterManager : MonoBehaviour
         controller = GetComponent<CharacterController>();
         jumped = false;
         camTransform = Camera.main.transform;
+        playerInput = GetComponent<PlayerInput>();
     }
 
     public void OnMove(InputValue value)
@@ -50,6 +51,12 @@ public class CharacterManager : MonoBehaviour
 
     void Update()
     {
+        if (playerInput.currentActionMap.name == "UI") {
+            highlightedItem = null;
+            if (interactableText.activeSelf)
+                interactableText.SetActive(false);
+            return;
+        }
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && jumped) {
             jumped = false;

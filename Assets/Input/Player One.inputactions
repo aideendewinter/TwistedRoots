@@ -225,9 +225,9 @@
                     "name": "",
                     "id": "97b8ba11-4197-49b4-b181-6dc2c22cb2d2",
                     "path": "<Keyboard>/e",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard&Mouse",
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
