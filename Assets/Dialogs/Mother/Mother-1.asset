@@ -10,8 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5bdb5f0a33dc374cb66ffb0a9614517, type: 3}
-  m_Name: Hello
+  m_Name: Mother-1
   m_EditorClassIdentifier: 
-  startingLine: Hello.
-  additionalLines:
-  - {fileID: 11400000, guid: 8f141c520fec21c44985b5043bee4ac3, type: 2}
+  npcDialogs:
+  - {fileID: 11400000, guid: a70621de0fdbc724cac81d6288a68844, type: 2}
+  playerDialogs:
+  - {fileID: 11400000, guid: 92e082b7634a86048a2f3ef9ebb8394e, type: 2}
+  npcTextColor: {r: 0.6792453, g: 0, b: 0.2558652, a: 1}
+  playerTextColor: {r: 1, g: 1, b: 1, a: 1}
+  startingLineID: Mother-1
+  lang: 0

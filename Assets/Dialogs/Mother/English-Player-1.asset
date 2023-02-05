@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81ad5cf642f28a94da386cfa843f38e1, type: 3}
+  m_Name: English-Player-1
+  m_EditorClassIdentifier: 
+  dialogLines:
+  - id: Willow-1
+    line: It's Willow, Mom. Will-OOO. It's not even that different, please use it.
+    speakerID: player
+    lineAudio: {fileID: 0}
+    lang: 0
+    played: 1
+    repeatable: 0
+    requirements:
+    - PREV_LINE:Mother-1
+  lang: 0

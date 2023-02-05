@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <ui:Label text="Dialog Collection" display-tooltip-when-elided="true" style="font-size: 18px;" />
+    <uie:PropertyField label="Language" binding-path="lang" style="margin-top: 6px;" />
+    <uie:PropertyField binding-path="dialogLines" style="margin-bottom: 6px; margin-top: 6px;" />
+</ui:UXML>

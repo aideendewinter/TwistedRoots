@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using AdaGraves_Dialog;
 
-[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/DialogLine", order = 2)]
-public class DialogLine : ScriptableObject
+[System.Serializable]
+public class DialogLine
 {
-    public string question, response;
-    public DialogLine[] additionalLines;
-    public bool isExit = false;
+    public string id, line, speakerID;
+    public AudioClip lineAudio;
+    public Language lang = Language.ENGLISH;
+    public bool played = false;
+    public bool repeatable;
+    public string[] requirements;
 }

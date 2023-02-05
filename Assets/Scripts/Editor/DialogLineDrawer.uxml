@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <ui:Foldout text="Dialog Line">
+        <ui:TextField picking-mode="Ignore" label="Line ID" binding-path="id" />
+        <ui:Toggle label="Repeatable" binding-path="repeatable" />
+        <ui:Toggle label="Played" binding-path="played" />
+        <ui:TextField picking-mode="Ignore" label="Speaker ID" binding-path="speakerID" />
+        <ui:TextField picking-mode="Ignore" label="Line Text" binding-path="line" />
+        <uie:ObjectField label="Line Audio" binding-path="lineAudio" type="UnityEngine.AudioClip,UnityEngine.AudioModule" />
+        <uie:PropertyField binding-path="lang" label="Language" style="opacity: 1;" />
+        <ui:ListView focusable="true" binding-path="requirements" show-foldout-header="true" header-title="Requirements" show-add-remove-footer="true" />
+    </ui:Foldout>
+</ui:UXML>
