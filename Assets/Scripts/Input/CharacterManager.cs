@@ -41,6 +41,21 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
+    //Find out the mouse position and jump to it (FLJ, 2/4/2023)
+    public void OnFire()
+    {
+        Vector3 posicion = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+        RaycastHit gotcha;
+        Ray pointy=Camera.main.ViewportPointToRay(posicion);
+        if(Physics.Raycast(pointy,out gotcha))
+        {
+            Vector3 dest = gotcha.point;
+            dest.y = transform.position.y;
+            controller.Move(dest - transform.position);
+        }
+
+    }
+
     public void OnInteract()
     {
         if(interactableText.activeSelf == true) {
