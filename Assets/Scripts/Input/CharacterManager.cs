@@ -62,6 +62,10 @@ public class CharacterManager : MonoBehaviour
         if(interactableText.activeSelf == true) {
             highlightedItem.Interact();
         }
+        else //AHA! no interaction? Just move (FLJ,2/4/2023)
+        {
+            OnFire();
+        }
     }
 
     void Update()
