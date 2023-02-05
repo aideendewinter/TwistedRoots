@@ -15,10 +15,19 @@ MonoBehaviour:
   dialogLines:
   - id: Mother-1
     line: Will! Welcome home! How was school?
-    speakerID: mother
+    speakerID: Mother
     lineAudio: {fileID: 0}
     lang: 0
-    played: 1
+    played: 0
     repeatable: 0
     requirements: []
+  - id: Mother-2
+    line: Right. Sorry. Oh, I'm just awful. Willow! How was school, Willow?
+    speakerID: Mother
+    lineAudio: {fileID: 0}
+    lang: 0
+    played: 0
+    repeatable: 0
+    requirements:
+    - PREV_LINE:Willow-1
   lang: 0

@@ -15,11 +15,29 @@ MonoBehaviour:
   dialogLines:
   - id: Willow-1
     line: It's Willow, Mom. Will-OOO. It's not even that different, please use it.
-    speakerID: player
+    speakerID: Willow
     lineAudio: {fileID: 0}
     lang: 0
-    played: 1
+    played: 0
     repeatable: 0
     requirements:
     - PREV_LINE:Mother-1
+  - id: Willow-2
+    line: Whatever. It's been good.
+    speakerID: Willow
+    lineAudio: {fileID: 0}
+    lang: 0
+    played: 0
+    repeatable: 0
+    requirements:
+    - PREV_LINE:Mother-2
+  - id: Willow-3
+    line: A lot better than here.
+    speakerID: Willow
+    lineAudio: {fileID: 0}
+    lang: 0
+    played: 0
+    repeatable: 0
+    requirements:
+    - PREV_LINE:Mother-2
   lang: 0
